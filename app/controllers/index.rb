@@ -4,6 +4,7 @@ get '/' do
 end
 
 get '/login' do
+  redirect '/' if session[:id]
   @error = params[:error]
   erb :login
 end
@@ -12,10 +13,8 @@ post '/login' do
   if session[:id]
     redirect '/'
   else
-    username = params[:username]
-    password = params[:password]
-    new_user = User.find_by(username: username)
-    if new_user && new_user.authenticate(password)
+    new_user = User.find_by(username: params[:username])
+    if new_user && new_user.authenticate(params[:password])
       session[:id] = new_user.id
       redirect '/'
     else
