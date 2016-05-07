@@ -16,7 +16,8 @@ get '/decks/:id/cards/:card_id/guess' do
   @card = Card.find_by(id: params[:card_id])
   @game = Game.find_by(deck_id: params[:id])
   if @card.check_answer(params[:answer])
-    @game.first_guess_corrects =
+    @game.first_guess_corrects = something
+  end
 
   # else
   # end

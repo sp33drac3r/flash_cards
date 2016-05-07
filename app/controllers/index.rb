@@ -1,7 +1,8 @@
 get '/' do
+  logged_in?
   redirect '/decks'
 end
 
-get '/login' do
-  erb :login
+post '/login' do
+  redirect '/decks'
 end

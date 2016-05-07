@@ -1,4 +1,5 @@
 get '/decks' do
+  logged_in?
   @decks = Deck.all
   erb :'decks/index'
 end
