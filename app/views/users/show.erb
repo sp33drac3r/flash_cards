@@ -1,1 +1,28 @@
-<h1>Here is your user</h1>
+<h1>Welcome to <%= @user.username %>'s page!</h1>
+
+<%@user.games.each do |game|  %>
+
+    <h3><%=game.deck.name %></h3>
+
+
+    <table>
+      <thead>
+        <tr>
+            <th data-field="date">Date</th>
+            <th data-field="cards_in_deck">Cards in deck</th>
+            <th data-field="first_guess_correct">First guess correct</th>
+            <th data-field="total_guesses">Total guesses</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><%=game.deck.updated_at %></td>
+          <td><%=game.deck.cards.size %></td>
+          <td><%=game.first_guess_corrects %></td>
+          <td><%=game.guesses%></td>
+        </tr>
+      </tbody>
+    </table>
+
+<% end %>
