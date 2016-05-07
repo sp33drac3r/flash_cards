@@ -1,4 +1,5 @@
 get '/' do
+  logged_in?
   redirect '/decks'
 end
 

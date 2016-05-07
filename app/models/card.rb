@@ -1,7 +1,6 @@
 class Card < ActiveRecord::Base
   belongs_to :deck
-  has_many :card_users
-  has_many :users, through: :card_users
+  has_many :guesses
 
   validates :question, presence: true
   validates :answer, presence: true
