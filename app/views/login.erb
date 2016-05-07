@@ -1,7 +1,29 @@
-<form action="/login" method="post">
-  <label for="username">username</label>
-  <input placeholder="ie. squirrel93" name="username" type="text">
-   <label for="username">password</label>
-  <input placeholder="123" type='password' name="password">
-  <input type='submit' value="login">
-</form>
+<div class="row">
+  <div class="container center">
+    <h1 class="light-green-text">Welcome to <span class="light-blue-text">Notey</span></h1>
+    <div class="col s12 m6 offset-m3 l4 offset-l4">
+
+      <form action="/login" method="POST">
+        <span><%= @error %>< </span><br>
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="username" data-error="wrong" data-success="right">Email</label>
+            <input id="input_text" name="username" type="text" class="validate" length="65">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="password">Password</label>
+            <input id="input_text" type="password" name="password" class="validate" length="65">
+          </div>
+        </div>
+        <input type="submit" value="Login" class="btn waves-effect waves-light light-green"></input>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row center">
+  <a href="/users/new" class="btn waves-effect waves-light light-blue">or Sign Up</a>
+</div>
