@@ -11,11 +11,13 @@ end
 
 # Create action
 post '/users' do
+  p params[:user].inspect
   @user = User.new(params[:user])
 
   if @user.save
     redirect '/decks'
   else
+    p @user.errors.full_messages
     redirect '/users/new'
   end
 end
