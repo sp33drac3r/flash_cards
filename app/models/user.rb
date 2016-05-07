@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :decks, through: :games
   has_many :guesses
 
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
   has_secure_password
 
 end
