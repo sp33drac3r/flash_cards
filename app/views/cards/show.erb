@@ -1,0 +1,9 @@
+<h1>Flashcards</h1>
+<h2><%= @card.deck.name %></h2>
+<%= render "_nav" %>
+<%= @card.question %>
+<label>Enter your question:</label>
+<form action="/decks/:id/cards/:card_id/guess" method="get">
+<input type="text" name="answer">
+<input type="submit" value="submit your guess">
+</form>

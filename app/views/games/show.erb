@@ -1,0 +1,4 @@
+<h1>Flashcards</h1>
+<h2><%= @game.deck.name %></h2>
+<%= render "_nav" %>
+<p>You've completed a round of <%= @game.deck.name %>. You answered <%= @game.first_guess_corrects %> / <%= @game.guesses %> (<= change to the number of correct guesses)cards correctly on the first try. You submitted <%= @game.guesses %> total guesses before each card was answered correctly.</p>
