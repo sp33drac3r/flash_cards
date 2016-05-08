@@ -1,8 +1,3 @@
-User.delete_all
-Deck.delete_all
-Card.delete_all
-Game.delete_all
-
 10.times do
   User.create(username: Faker::Internet.user_name, password: "password")
 end
@@ -22,5 +17,5 @@ end
 end
 
 100.times do
-  Game.create(user_id: rand(1..10) , deck_id: rand(1..10),  guesses: rand(20..30), first_guess_corrects: rand(10..20))
+  Game.create(user_id: rand(1..10), deck_id: rand(1..10))
 end
