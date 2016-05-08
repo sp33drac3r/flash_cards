@@ -7,12 +7,16 @@ Game.delete_all
   User.create(username: Faker::Internet.user_name, password: "password")
 end
 
+Deck.create(name: "Hacker Nouns", image: Faker::Avatar.image)
+
 10.times do
-  Deck.create(name: Faker::Hacker.noun, image: Faker::Avatar.image)
+  question = "A DBC hacker #{Faker::Hacker.verb} a #{Faker::Hacker.adjective} #{Faker::Hacker.noun}. (true/false)"
+  answer = rand(2) == 1 ? "true" : "false"
+  Card.create(question: question, answer: answer, image: )
 end
 
 100.times do
-  question = Faker::Lorem.sentence + " true / false ?"
+  question = Faker::ChuckNorris.fact + " true / false ?"
   answer = rand(2) == 1 ? "true" : "false"
   Card.create(question: question, answer: answer, image: Faker::Avatar.image, deck_id: rand(1..10))
 end
