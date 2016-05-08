@@ -1,5 +1,5 @@
 <div class="decks">
-  <h2>Choose your game</h2>
+
   <div class="row">
     <% @decks.each do |deck| %>
       <div class="col s5 center"><p class="card-panel orange z-depth-4"><a href="/decks/<%= deck.id %>"><%= deck.name.upcase %></a></p></div>
