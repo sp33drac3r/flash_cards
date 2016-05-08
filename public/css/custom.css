@@ -1,0 +1,17 @@
+.eagle-icon {
+  width: 0.75em;
+  height: auto;
+  padding-bottom: 0.5em;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.decks {
+
+top:50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%, 0);
+  position: absolute;
+}

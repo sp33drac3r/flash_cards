@@ -1,7 +1,10 @@
-<h1>Flashcards</h1>
-<h2>Flashcard Decks</h2>
-<ul>
-<% @decks.each do |deck| %>
-  <li><a href="/decks/<%= deck.id %>"><%= deck.name %></a></li>
-<% end %>
-</ul>
+<div class="decks">
+
+  <div class="row">
+    <% @decks.each do |deck| %>
+      <div class="col s5 center"><p class="card-panel orange z-depth-4"><a href="/decks/<%= deck.id %>"><%= deck.name.upcase %></a></p></div>
+    <% end %>
+  </div>
+</div>
+
+

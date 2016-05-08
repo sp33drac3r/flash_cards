@@ -2,16 +2,41 @@
   User.create(username: Faker::Internet.user_name, password: "password")
 end
 
+deck1_name = "Hacker Nouns"
+Deck.create(name: deck1_name, image: Faker::Avatar.image)
+
 10.times do
-  Deck.create(name: Faker::Hacker.noun, image: Faker::Avatar.image)
-end
-
-100.times do
-  question = Faker::Lorem.sentence + " true / false ?"
+  question = "A DBC hacker #{Faker::Hacker.verb} a #{Faker::Hacker.adjective} #{Faker::Hacker.noun}. (true/false)"
   answer = rand(2) == 1 ? "true" : "false"
-  Card.create(question: question, answer: answer, image: Faker::Avatar.image, deck_id: rand(1..10))
+  Card.create(question: question, answer: answer, image: Faker::Avatar.image, deck_id: Deck.find_by(name: deck1_name).id)
 end
 
-100.times do
-  Game.create(user_id: rand(1..10), deck_id: rand(1..10))
+deck2_name = "University BS"
+Deck.create(name: deck2_name, image: Faker::Avatar.image)
+
+10.times do
+  question = "You should go to #{Faker::University.name}. It's a fantastic university. (true/false)"
+  answer = "false"
+  Card.create(question: question, answer: answer, image: Faker::Avatar.image, deck_id: Deck.find_by(name: deck2_name).id)
 end
+
+# CHUCK NORRIS UNINITIALIZED CONSTANT IS A KNOWN BUG IN FAKER 1.6.3
+
+# deck3_name = "Why does Waldo hide?"
+# Deck.create(name: deck3_name, image: Faker::Avatar.image)
+
+# 10.times do
+#   question = "#{Faker::ChuckNorris.fact}. (true/false)"
+#   answer = "true"
+#   Card.create(question: question, answer: answer, image: Faker::Avatar.image, deck_id: Deck.find_by(name: deck3_name).id)
+# end
+
+
+
+
+
+
+
+
+
+
