@@ -1,9 +1,8 @@
-<h1>Welcome to <%= @user.username %>'s page!</h1>
+<h1><%= @user.username %></h1>
 
 <%@user.games.each do |game|  %>
 
     <h3><%=game.deck.name %></h3>
-
 
     <table>
       <thead>
@@ -17,10 +16,17 @@
 
       <tbody>
         <tr>
-          <td><%=game.deck.updated_at %></td>
+          <td><%=game.updated_at %></td>
           <td><%=game.deck.cards.size %></td>
-          <td><%=game.first_guess_corrects %></td>
-          <td><%=game.guesses%></td>
+          <td>
+            <% guesses_for_game = Guess.where({user_id: @user.id, game_id: game.id}) %>
+            <% first_guess_corrects = 0 %>
+            <% guesses_for_game.each do |guess| %>
+              <% first_guess_corrects += 1 if guess.first_guess_correct %>
+            <% end %>
+            <%= first_guess_corrects %>
+          </td>
+          <td><%= guesses_for_game.size %></td>
         </tr>
       </tbody>
     </table>

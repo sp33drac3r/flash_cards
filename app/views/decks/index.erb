@@ -1,5 +1,5 @@
 <div class="decks">
-
+  <h1 class="orange-text">Welcome <img src="https://pixabay.com/static/uploads/photo/2016/04/01/11/55/bird-1300443_960_720.png" class="responsive-img eagle-icon"/></h1>
   <div class="row">
     <% @decks.each do |deck| %>
       <div class="col s5 center"><p class="card-panel orange z-depth-4"><a href="/decks/<%= deck.id %>"><%= deck.name.upcase %></a></p></div>
