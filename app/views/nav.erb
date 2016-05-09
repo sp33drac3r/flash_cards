@@ -1,14 +1,13 @@
 <nav>
   <div class="nav-wrapper black">
-    <a href="/" class="brand-logo center orange-text">EntAGLEd</a>
+    <a href="/" class="brand-logo center orange-text">EntAnGLEd</a>
     <ul id="nav-mobile" class="left">
       <% unless session[:id] %>
-
         <li><a href="/login">Login</a></li>
         <li class="black-text"><a href="/users/new">Register</a></li>
       <% else %>
         <li><a href="/decks">Home</a></li>
-        <li><a href="/decks">Profile</a></li>
+        <li><a href="/users/<%= session[:id] %>">Profile</a></li>
         <li><a href='/logout'>Logout</a></li>
       <% end %>
     </ul>

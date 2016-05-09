@@ -25,6 +25,7 @@ end
 # Show action
 get '/users/:id' do
   @user = User.find_by(id: params[:id])
+  @user_guesses = Guess.where({user_id: @user.id})
   erb :'users/show'
 end
 
